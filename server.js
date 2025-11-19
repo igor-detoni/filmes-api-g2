@@ -1,15 +1,23 @@
-const express = require('express');
-const cors = require('cors');
-const app = express();
+const app = require('./src/app');
+const db = require('./src/models');
 
-app.use(cors());
-app.use(express.json());
+const PORT = process.env.PORT || 3000; 
 
-app.get('/', (req, res) => {
-    res.send('API de Filmes rodando!');
-});
+//Conectar e sincronizar o banco
+db.sequelize
+    .authenticate()
+    .then(() => {
+        console.log("Banco encontrado e autenticado com sucesso!");
 
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
+        return db.sequelize.sync({ alter: true }); 
+    })
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Servidor Express rodando na porta ${PORT}`);
+        });
+
+    })
+    .catch((error) => {
+        console.error("Erro: Banco não conectado ou erro na sincronização:", error);
+        process.exit(1);
+    });
