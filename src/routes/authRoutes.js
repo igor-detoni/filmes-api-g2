@@ -17,13 +17,13 @@ const validacoesLogin = [
 ];
 
 
-// POST /api/v1/usuarios/registro
+// POST /api/v1/auth/registro
 router.post('/registro', validacoesRegistro, authController.registro);
 
-// POST /api/v1/usuarios/login
+// POST /api/v1/auth/login
 router.post('/login', validacoesLogin, authController.login);
 
-// GET /api/v1/usuarios/perfil
+// GET /api/v1/auth/perfil
 router.get('/perfil', authMiddleware, (req, res) => {
     res.status(200).json({ 
         mensagem: 'Acesso concedido. Seu perfil (dados extraídos do Token):',

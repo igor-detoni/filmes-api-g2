@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
+const usuarioRoutes = require('./routes/usuarioRoutes');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 
 const app = express();
@@ -15,7 +16,8 @@ app.get('/', (req, res) => {
 });
 
 //Conexão das rotas
-app.use('/api/v1/usuarios', authRoutes);
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/usuarios', usuarioRoutes);
 
 // Middleware global de tratamento de erros
 app.use(errorMiddleware);
