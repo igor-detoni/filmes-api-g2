@@ -94,9 +94,11 @@ npm test
 
 ## ☁️ Link do Deploy Funcional
 
-> Este link será preenchido após o deploy ser concluído.
+A API está disponível e funcional na nuvem através do Render:
 
-**API na Nuvem (Render/Outro):** [Link do Deploy Funcional AQUI]
+**🌐 API na Nuvem:** [https://trabalhog2filmes.onrender.com](https://trabalhog2filmes.onrender.com)
+
+**📚 Documentação Swagger Online:** [https://trabalhog2filmes.onrender.com/api-docs](https://trabalhog2filmes.onrender.com/api-docs)
 
 ---
 
