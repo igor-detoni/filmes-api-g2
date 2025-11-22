@@ -5,6 +5,7 @@ const errorMiddleware = require('./middlewares/errorMiddleware');
 const usuarioRoutes = require('./routes/usuarioRoutes');
 const filmeRoutes = require('./routes/filmeRoutes');
 const serieRoutes = require('./routes/serieRoutes');
+const atorRoutes = require('./routes/atorRoutes');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/usuarios', usuarioRoutes);
 app.use('/api/v1/filmes', filmeRoutes);
 app.use('/api/v1/series', serieRoutes);
+app.use('/api/v1/atores', atorRoutes);
 
 // Middleware global de tratamento de erros
 app.use(errorMiddleware);
