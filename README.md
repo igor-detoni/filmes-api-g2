@@ -44,9 +44,11 @@ cd [nome-da-pasta-do-projeto]
 
 # 2. Instalar as dependências do projeto
 npm install
+```
+
 2. Como Configurar o Banco de Dados
 Para a API funcionar, é necessário configurar as variáveis de conexão do seu banco de dados NeonDB.
-```
+
 
 Crie um arquivo na raiz do projeto chamado .env.
 
