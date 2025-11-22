@@ -6,17 +6,17 @@
 
 ## 🎯 Objetivo do Projeto
 
-O objetivo deste trabalho foi desenvolver uma **API RESTful completa** utilizando Node.js e Express.js, aplicando conceitos avançados de autenticação JWT, validação de dados, tratamento de erros, implementação de testes automatizados e documentação interativa com Swagger.
+O objetivo deste trabalho foi desenvolver uma **API RESTful completa** utilizando Node.js e Express.js, aplicando conceitos avançados de autenticação JWT, validação de dados, tratamento de erros e implementação de testes automatizados e documentação interativa com Swagger.
 
 ### Entidades Implementadas (Mínimo de 5)
 
 O projeto possui um CRUD completo (Create, Read, Update, Delete) para todas as seguintes entidades, garantindo relacionamentos complexos entre elas:
 
-1.  **Usuário:** Autenticação e Perfil.
-2.  **Filme:** Conteúdo principal.
-3.  **Série:** Conteúdo principal.
-4.  **Ator:** Relacionamento Muitos-para-Muitos (M:N) com Filmes e Séries (Elenco).
-5.  **Avaliação:** Relacionamento Muitos-para-Um (M:1) com Usuário e Conteúdo.
+1. **Usuário:** Autenticação e Perfil.
+2. **Filme:** Conteúdo principal.
+3. **Série:** Conteúdo principal.
+4. **Ator:** Relacionamento Muitos-para-Muitos (M:N) com Filmes e Séries (Elenco).
+5. **Avaliação:** Relacionamento Muitos-para-Um (M:1) com Usuário e Conteúdo.
 
 ---
 
@@ -24,16 +24,16 @@ O projeto possui um CRUD completo (Create, Read, Update, Delete) para todas as s
 
 A API foi desenvolvida seguindo os requisitos técnicos obrigatórios do projeto:
 
-* **Ambiente:** Node.js com Express.js e JavaScript.
-* **Banco de Dados:** PostgreSQL na nuvem (utilizando **NeonDB**).
-* **ORM:** **Sequelize**.
-* **Segurança:** Autenticação via **JWT** e criptografia de senha via **bcrypt**.
-* **Validação:** **`express-validator`**.
-* **Testes Automatizados:** **Jest** e Supertest.
+- **Ambiente:** Node.js com Express.js e JavaScript
+- **Banco de Dados:** PostgreSQL na nuvem (utilizando **NeonDB**)
+- **ORM:** **Sequelize**
+- **Segurança:** JWT e **bcrypt**
+- **Validação:** **`express-validator`**
+- **Testes Automatizados:** **Jest** e Supertest
 
 ---
 
-## 🚀 Como Rodar Localmente (Passo a Passo)
+## 🚀 Como Rodar Localmente
 
 ### 1. Clonagem e Instalação
 
@@ -46,43 +46,60 @@ cd [nome-da-pasta-do-projeto]
 npm install
 ```
 
-2. Como Configurar o Banco de Dados
+### 2. Configuração do Banco de Dados
+
 Para a API funcionar, é necessário configurar as variáveis de conexão do seu banco de dados NeonDB.
 
+1. Crie um arquivo na raiz do projeto chamado `.env`
+2. Insira as variáveis abaixo, substituindo os valores conforme sua Connection String:
 
-Crie um arquivo na raiz do projeto chamado .env.
+```env
+# VARIÁVEIS DE AMBIENTE
+NEON_URL="postgresql://[usuário]:[senha]@[host]/[banco]?sslmode=require"
+JWT_SECRET="SEGREDO_FORTE_PARA_ASSINATURA_JWT"
+# O Jest usará o ambiente 'test' com SQLite
+```
 
-Insira as variáveis abaixo, substituindo [VALOR] pela sua Connection String completa do NeonDB e definindo um segredo para o JWT:
+### 3. Sincronização e Inicialização
 
-Snippet de código
+O comando `npm run dev` irá:
 
-# VARIÁVEIS DE AMBIENTE (.env)
+1. Conectar-se ao NeonDB
+2. Sincronizar e criar todas as tabelas (Usuários, Filmes, Atores, Avaliações, etc.)
+3. Iniciar o servidor Express
 
-# Conexão com o Banco de Dados (NeonDB/PostgreSQL)
-NEON_URL="postgresql://[usuario]:[senha]@[host]/[banco]?sslmode=require"
-
-# Segredo para assinar os Tokens JWT (pode ser qualquer string aleatória)
-JWT_SECRET="SEU_SEGREDO_SUPER_SECRETO"
-3. Sincronização e Inicialização
-O comando abaixo irá conectar ao banco, criar as tabelas automaticamente (sincronização do Sequelize) e iniciar o servidor:
-
-Bash
-
+```bash
 npm run dev
-A API estará rodando em: http://localhost:3000
+```
 
-4. Como Acessar a Documentação Swagger
-A documentação interativa de todos os endpoints está configurada na rota /api-docs.
+A API estará rodando em `http://localhost:3000`
 
-Acesse no seu navegador: http://localhost:3000/api-docs
+### 4. Acessar a Documentação Swagger
 
-🧪 Testes Automatizados
-O projeto inclui Testes de Integração e Unitários com Jest. Para executá-los (utilizando banco de dados SQLite em arquivo temporário):
+A documentação interativa de todos os endpoints está configurada na rota `/api-docs`.
 
-Bash
+**Acesse no seu navegador:** `http://localhost:3000/api-docs`
 
+---
+
+## 🧪 Testes Automatizados
+
+Para rodar os testes de Integração e Unitários, use:
+
+```bash
 npm test
-☁️ Link do Deploy Funcional
-A API está publicada e acessível publicamente no seguinte endereço:
+```
 
-🔗 Link do Deploy:
+---
+
+## ☁️ Link do Deploy Funcional
+
+> Este link será preenchido após o deploy ser concluído.
+
+**API na Nuvem (Render/Outro):** [Link do Deploy Funcional AQUI]
+
+---
+
+## 📝 Licença
+
+Este projeto foi desenvolvido para fins acadêmicos.
