@@ -6,6 +6,7 @@ const usuarioRoutes = require('./routes/usuarioRoutes');
 const filmeRoutes = require('./routes/filmeRoutes');
 const serieRoutes = require('./routes/serieRoutes');
 const atorRoutes = require('./routes/atorRoutes');
+const avaliacaoRoutes = require('./routes/avaliacaoRoutes');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use('/api/v1/usuarios', usuarioRoutes);
 app.use('/api/v1/filmes', filmeRoutes);
 app.use('/api/v1/series', serieRoutes);
 app.use('/api/v1/atores', atorRoutes);
+app.use('/api/v1/avaliacoes', avaliacaoRoutes);
 
 // Middleware global de tratamento de erros
 app.use(errorMiddleware);
