@@ -1,18 +1,23 @@
 const express = require('express');
 const cors = require('cors');
+
 const authRoutes = require('./routes/authRoutes');
 const errorMiddleware = require('./middlewares/errorMiddleware');
+const loggerMiddleware = require('./middlewares/loggerMiddleware');
 const usuarioRoutes = require('./routes/usuarioRoutes');
 const filmeRoutes = require('./routes/filmeRoutes');
 const serieRoutes = require('./routes/serieRoutes');
 const atorRoutes = require('./routes/atorRoutes');
 const avaliacaoRoutes = require('./routes/avaliacaoRoutes');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpecs = require('./config/swagger');
 
 const app = express();
 
 // Middlewares globais
 app.use(cors()); 
 app.use(express.json()); 
+app.use(loggerMiddleware);
 
 // Rota de teste
 app.get('/', (req, res) => {
@@ -26,6 +31,7 @@ app.use('/api/v1/filmes', filmeRoutes);
 app.use('/api/v1/series', serieRoutes);
 app.use('/api/v1/atores', atorRoutes);
 app.use('/api/v1/avaliacoes', avaliacaoRoutes);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Middleware global de tratamento de erros
 app.use(errorMiddleware);
