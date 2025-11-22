@@ -6,7 +6,7 @@ let sequelize;
 if (process.env.NODE_ENV === "test") {
   sequelize = new Sequelize({
     dialect: "sqlite",
-    storage: ":memory",
+    storage: "./database_test.sqlite", 
     logging: false,
   });
 } else {
